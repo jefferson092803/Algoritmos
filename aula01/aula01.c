@@ -18,18 +18,23 @@ int main(){
     scanf("%d",&nota3);
     
     media= (nota1 + nota2 +nota3)/3;
-    
-    if(media > 9){
-        printf("APROVADO!EXCELENTE NOTA\n");
+
+    if(media < 7){
+        printf("reprovado\n");
+
     }
-    else if(media < 7){
-        printf("REPROVADO\n");
+    else if(media >= 8){
+       printf("parabens!bonus de 1 ponto!");
+       media ++;
+       printf("Aprovado!Excelente nota\n");
+       if(media > 10){
+          media --;
+       }
     }
     else{
-        printf("APROVADO!");
+        printf("APROVADO!\n");
     }
 
-    printf("media:%d",media);
-
+    printf("media:%d\n",media);
     return 0;
 }
