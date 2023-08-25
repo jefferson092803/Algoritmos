@@ -17,17 +17,23 @@ int main(){
 
     printf("Operacao:%c\n",operacao);
 
+    if(!operacao == '#'){
+      printf("%c diferente de #\n",operacao);
+    }
+    return;
+
+
     if(operacao == '+'){
        printf("resultado :%d\n",numero1 + numero2);
     }
      
-     else if(operacao =='*'){
+     else if(operacao =='*' || operacao == 'x'){
         printf("resultado :%d\n",numero1 * numero2);
      }
      else if(operacao =='-'){
         printf("resultado :%d\n",numero1 - numero2);
      }
-     else if(operacao == '/'){
+     else if(operacao == '/' && numero1 > numero2){
        printf("resultado :%d\n",numero1 / numero2);
      }
      else if(operacao == '%'){
