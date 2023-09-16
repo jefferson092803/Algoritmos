@@ -7,13 +7,11 @@ int main(){
    scanf("%d",&numero);
    if (numero % 2 == 0)
    {
-     printf("%d",numero);
-     printf(" eh par\n");
+     printf("%d eh par\n",numero);
    }
    else
    {
-    printf("%d",numero);
-    printf(" eh impar\n");
+    printf("%d eh impar\n",numero);
    }
    numeroOriginal = numero;
    while (numero != 0)
