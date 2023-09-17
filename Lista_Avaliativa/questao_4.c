@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-
 int main(){
    float salario;
    char nivelFuncionario;
