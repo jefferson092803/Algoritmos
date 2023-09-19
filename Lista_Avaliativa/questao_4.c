@@ -5,9 +5,7 @@ int main(){
    char nivelFuncionario;
    float porcentagem;
 
-   printf("Digite o nivel do funcionario:\n");
    scanf("%c",&nivelFuncionario);
-   printf("Digite o salario do funcionario\n");
    scanf("%f",&salario);
    switch (nivelFuncionario)
    {
