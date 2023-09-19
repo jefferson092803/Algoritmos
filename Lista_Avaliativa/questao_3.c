@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 int main(){
-    int senhaNova;
-    int senhaCadastrada;
+    int senhaNova,senhaCadastrada;
+
     scanf("%d", &senhaCadastrada);
     
     while(1){
@@ -11,9 +11,11 @@ int main(){
         if(senhaNova == senhaCadastrada){
             printf("senha valida!\n");
             break;
-        } 
+        } else
+        {
+            printf("senha invalida!\n");
+        }
         
-        printf("senha invalida!\n");
         
     }
     printf("senha cadastrada = %d\n",senhaCadastrada);
