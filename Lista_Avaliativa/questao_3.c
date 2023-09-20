@@ -18,6 +18,6 @@ int main(){
         
         
     }
-    printf("senha cadastrada = %d\n",senhaCadastrada);
+    printf("senha cadastrada = %.4d\n",senhaCadastrada);
     return 0;
 }
