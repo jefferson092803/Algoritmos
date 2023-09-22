@@ -4,6 +4,7 @@ int main(){
     int senhaNova,senhaCadastrada;
 
     scanf("%d", &senhaCadastrada);
+    printf("senha cadastrada = %.4d\n",senhaCadastrada);
     
     while(1){
         scanf("%d", &senhaNova);
@@ -18,6 +19,5 @@ int main(){
         
         
     }
-    printf("senha cadastrada = %.4d\n",senhaCadastrada);
     return 0;
 }
