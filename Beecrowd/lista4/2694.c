@@ -1,16 +1,29 @@
 #include <stdio.h>
+#include <ctype.h>
 
 int main(){
-   int quantidade_Entrada;
-   scanf("%d",&quantidade_Entrada);
-   for (int i = 0; i < quantidade_Entrada; i++)
+   int N;
+   scanf("%d",&N);
+   int soma = 0;
+   for (int i = 0; i < N; i++)
    {
-      char string[14];
+      char string[15];
       scanf("%s",string);
-      char num1[2],num2[3];
+      for (int i = 0; i < 15; i++)
+      {
+         if (isalpha(string[i]))
+         { 
+             
+         }
+         
+         else (isalnum(string[i]))
+         {
+            soma += string[i];
+         }
+         
+         printf("%d\n", soma);
+      }
    }
-   
-
 
 
     return 0;
