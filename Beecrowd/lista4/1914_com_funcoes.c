@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-
 char* ehPArouImpar(int valor){
    if (valor%2==0)
    {
@@ -9,9 +8,7 @@ char* ehPArouImpar(int valor){
    }else
    {
     return "IMPAR";
-   }
-   
-   
+   } 
 }
 int main(){
     int numEntrada;
@@ -36,7 +33,5 @@ int main(){
        
     }
     
-
-
     return 0;
 }
