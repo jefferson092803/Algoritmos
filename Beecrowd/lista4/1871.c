@@ -1,20 +1,42 @@
 #include <stdio.h>
 
-int main(){
-   int num1, num2, soma=0, resultado=0;
-   int posicao=1;
-   scanf("%d %d",&num1,&num2);
 
-   soma = num1 + num2;
-    while (soma > 0) {
-        int digito = soma % 10;
-        if (digito != 0) {
-            resultado += digito * posicao;
-            posicao *= 10;
+int removeZeros(int num){
+    int resultado = 0;
+    int multiplicador = 1;
+    while (num > 0)
+    {
+        int digito= num%10;
+        if (digito != 0)
+        {
+            resultado += digito*multiplicador;
+            multiplicador*=10;
         }
-        soma /= 10;
+        num/=10;
     }
-   printf("%d\n", resultado);
+    return resultado;
+}
+
+
+
+
+int main(){
+   int num1, num2;
    
+    while (1) {
+        scanf("%d %d",&num1,&num2);
+
+         if (num1 == 0 && num2 == 0) {
+            break;
+        }
+        
+        int soma= num1 + num2;
+        
+        int resultado=removeZeros(soma);
+          
+        printf("%d\n", resultado);
+    }
+    
+
     return 0;
 }
