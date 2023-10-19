@@ -2,10 +2,6 @@
 #include <string.h>
 
 
-
-
-
-
 int main(){
     int matrizA[4][4];
     int matrizB[4][4];
@@ -54,8 +50,6 @@ int main(){
         }
     }
     
-    
-    
-    
+        
     return 0;
 }
