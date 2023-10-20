@@ -45,7 +45,11 @@ int main(){
     {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                resultado[i][j] = matrizA[i][j] * matrizB[i][j];
+                resultado[i][j]=0;
+                
+                for (int k = 0; k < 4; k++) {
+                  resultado[i][j] += matrizA[i][k] * matrizB[k][j];
+                 }
             }
         }
     }
@@ -55,7 +59,7 @@ int main(){
     {
       for (int j = 0; j < 4; j++)
       {
-         printf("%d ",resultado[i][j]);
+         printf("%*d",+4,resultado[i][j]);
       }
       printf("\n");
     }
