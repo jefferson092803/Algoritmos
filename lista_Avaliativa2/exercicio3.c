@@ -23,7 +23,7 @@ int main(){
       }
     }
 
-    scanf("%s",&operacao[5]);
+    scanf("%s", operacao);
 
     if (strcmp(operacao,"soma")==0)
     {
@@ -50,6 +50,14 @@ int main(){
         }
     }
     
-        
+    
+    for (int i = 0; i < 4; i++)
+    {
+      for (int j = 0; j < 4; j++)
+      {
+         printf("%d ",resultado[i][j]);
+      }
+      printf("\n");
+    }
     return 0;
 }
