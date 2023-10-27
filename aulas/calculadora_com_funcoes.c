@@ -36,4 +36,6 @@ int main(){
     printf("Terminei os calculos...\n");
     
     return 0; 
+
+    
 }
