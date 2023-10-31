@@ -12,19 +12,22 @@ int main(){
     for (int i = 0; i < 11; i++)
     {
         fgets(nomeJogador,31,stdin);
-        scanf("%c",&posicao);
-        scanf("%d",&forca);
-        if (strcmp(posicao,'G')==0) {
+         char * token = strtok(nomeJogador,";");
+         token = strtok(NULL, ";");
+         printf("%s\n",token);
+         token = strtok(NULL, ";");
+         printf("%s\n",token);
+        if (strcmp(posicao,"G")==0) {
             G1 = forca;
-        } else if (strcmp(posicao,'L')== 0) {
+        } else if (strcmp(posicao,"L")== 0) {
             L1 += forca;
-        } else if (strcmp(posicao,'Z')== 0) {
+        } else if (strcmp(posicao,"Z")== 0) {
             Z1 += forca;
-        } else if (strcmp(posicao,'V')== 0) {
+        } else if (strcmp(posicao,"V")== 0) {
             V1 += forca;
-        } else if (strcmp(posicao,'M')== 0) {
+        } else if (strcmp(posicao,"M")== 0) {
             M1 += forca;
-        } else if (strcmp(posicao,'A')== 0) {
+        } else if (strcmp(posicao,"A")== 0) {
             A1 += forca;
         }
     }
