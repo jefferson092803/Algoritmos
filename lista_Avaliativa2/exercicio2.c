@@ -34,7 +34,7 @@ int main(){
     float forca_time1 = (8 * G1 + 10 * (L1 + L2) + 5 * (Z1 + Z2) + 8 * (V1 + V2) + 11 * (M1 + M2) + 12 * (A1 + A2)) / 100.0;
     fgets(nomeDoTimeB,31,stdin);
     
-    printf("%s: %.2f de forca",nomeDoTimeA,forca_time1);
+    printf("%s: %.2f de forca\n",nomeDoTimeA,forca_time1);
     
 
 
