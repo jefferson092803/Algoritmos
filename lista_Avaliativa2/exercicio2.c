@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 int main(){
     char nomeDoTimeA[31];
@@ -14,9 +15,8 @@ int main(){
         fgets(nomeJogador,31,stdin);
          char * token = strtok(nomeJogador,";");
          token = strtok(NULL, ";");
-         printf("%s\n",token);
          token = strtok(NULL, ";");
-         printf("%s\n",token);
+         int valor = atoi(token);
         if (strcmp(posicao,"G")==0) {
             G1 = forca;
         } else if (strcmp(posicao,"L")== 0) {
