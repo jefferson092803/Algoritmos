@@ -1,25 +1,22 @@
 #include <stdio.h>
 #include <math.h>
 
-double calculaMontanteFimDoMes(int meses, double aporte,double juros){
-     
-   return aporte * (((pow(1 + juros, meses) - 1) / juros));
+double calculaMontanteFimDoMes(int mes, double aporte, double juros) {
+    return aporte *(1 + juros) * (((pow(1 + juros,mes) - 1)/juros));
 }
 
+int main() {
+    int num_meses;
+    double aporte_mensal, taxa_juros;
 
-int main(){
-   int num_meses;
-   double aporte_mensal, taxa_juros;
-   scanf("%d",&num_meses);
-   
-   for (int i = 1; i <= num_meses; i++)
-   {
-      scanf("%lf",&aporte_mensal);
-      scanf("%lf",&taxa_juros);
-      double montante= calculaMontanteFimDoMes(num_meses, aporte_mensal, taxa_juros);
-      printf("Montante ao fim do mes %d: R$%.2lf\n",i);
-   }
-   
+    scanf("%d", &num_meses);
+    scanf("%lf", &aporte_mensal);
+    scanf("%lf", &taxa_juros);
+
+    for (int i = 1; i <= num_meses; i++) {
+        double montante = calculaMontanteFimDoMes(i, aporte_mensal, taxa_juros);
+        printf("Montante ao fim do mes %d: R$%.2f\n", i, montante);
+    }
 
     return 0;
 }
