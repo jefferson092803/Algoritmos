@@ -1,90 +1,65 @@
 #include <stdio.h>
 #include <string.h>
-#include <ctype.h>
 
-// Função para verificar se a placa é válida
-int validarPlaca(char *placa) {
-    int i;
-    // Verifica o formato antigo (LLL-NNNN)
-    if (strlen(placa) == 8) {
-        for (i = 0; i < 3; i++) {
-            if (!isalpha(placa[i]))
-                return 0;
-        }
-        if (placa[3] != '-' || !isdigit(placa[4]) || !isdigit(placa[5]) || !isdigit(placa[6]) || !isdigit(placa[7]))
-            return 0;
+
+
+void decimal_para_binario(int decimal, char binario[]) {
+   binario[0] = '\0';
+
+   while (decimal > 0) {
+        char digito[2];
+        sprintf(digito, "%d", decimal % 2);
+        strcat(binario, digito);
+        decimal = decimal / 2;
     }
-    // Verifica o formato novo (LLLNLNN)
-    else if (strlen(placa) == 7) {
-        for (i = 0; i < 3; i++) {
-            if (!isalpha(placa[i]))
-                return 0;
-        }
-        if (!isalpha(placa[3]) || !isdigit(placa[4]) || !isdigit(placa[5]) || !isdigit(placa[6]))
-            return 0;
+
+    int tamanho = strlen(binario);
+    for (int i = 0; i < tamanho / 2; i++) {
+        char temp = binario[i];
+        binario[i] = binario[tamanho - 1 - i];
+        binario[tamanho - 1 - i] = temp;
     }
-    else {
-        return 0;
-    }
-    return 1;
 }
 
-// Função para verificar se o dia da semana é válido
-int validarDia(char *dia) {
-    char *diasValidos[] = {"SEGUNDA-FEIRA", "TERCA-FEIRA", "QUARTA-FEIRA", "QUINTA-FEIRA", "SEXTA-FEIRA", "SABADO", "DOMINGO"};
-    int i;
+void decimal_para_hexadecimal(int decimal, char hexadecimal[]){
+    hexadecimal[0] = '\0';
 
-    for (i = 0; i < 7; i++) {
-        if (strcmp(dia, diasValidos[i]) == 0)
-            return 1;
+    while (decimal > 0) {
+        int resto = decimal % 16;
+        char digito[2];
+        if (resto < 10) {
+            sprintf(digito, "%d", resto);
+        } else {
+            sprintf(digito, "%c", resto - 10 + 'a');
+        }
+        strcat(hexadecimal, digito);
+        decimal = decimal / 16;
     }
-    return 0;
+
+    int tamanho = strlen(hexadecimal);
+    for (int i = 0; i < tamanho / 2; i++) {
+        char temp = hexadecimal[i];
+        hexadecimal[i] = hexadecimal[tamanho - 1 - i];
+        hexadecimal[tamanho - 1 - i] = temp;
+    }
+
+
 }
 
-// Função principal
+
 int main() {
-    char placa[9];
-    char dia[20];
+    char numero_romano[20], binario[32], hexadecimal[100];
+    int decimal; 
+    
+    scanf("%s", numero_romano);
+    
+    decimal = romano_para_decimal(numero_romano);
+    decimal_para_binario(decimal, binario);
+    decimal_para_hexadecimal(decimal, hexadecimal);
 
-    // Entrada de dados
-    printf("Digite a placa do veiculo: ");
-    scanf("%s", placa);
-
-    // Verifica se a placa é válida
-    if (!validarPlaca(placa)) {
-        printf("Placa invalida\n");
-        return 1;
-    }
-
-    // Entrada de dados
-    printf("Digite o dia da semana: ");
-    scanf("%s", dia);
-
-    // Verifica se o dia da semana é válido
-    if (!validarDia(dia)) {
-        printf("Dia da semana invalido\n");
-        return 1;
-    }
-
-    // Verifica se o veículo pode circular no dia especificado
-    int ultimoDigito = placa[strlen(placa) - 1] - '0';
-    int diaProibido = (ultimoDigito == 0 || ultimoDigito == 1) ? 0
-                    : (ultimoDigito == 2 || ultimoDigito == 3) ? 1
-                    : (ultimoDigito == 4 || ultimoDigito == 5) ? 2
-                    : (ultimoDigito == 6 || ultimoDigito == 7) ? 3
-                    : (ultimoDigito == 8 || ultimoDigito == 9) ? 4
-                    : -1;
-
-    if ((strcmp(dia, "SEGUNDA-FEIRA") == 0 && diaProibido == 0) ||
-        (strcmp(dia, "TERCA-FEIRA") == 0 && diaProibido == 1) ||
-        (strcmp(dia, "QUARTA-FEIRA") == 0 && diaProibido == 2) ||
-        (strcmp(dia, "QUINTA-FEIRA") == 0 && diaProibido == 3) ||
-        (strcmp(dia, "SEXTA-FEIRA") == 0 && diaProibido == 4) ||
-        ((strcmp(dia, "SABADO") == 0 || strcmp(dia, "DOMINGO") == 0) && diaProibido == -1)) {
-        printf("Pode circular\n");
-    } else {
-        printf("Nao pode circular\n");
-    }
+    printf("%s na base 2: %s\n", numero_romano, binario);
+    printf("%s na base 10: %d\n", numero_romano, decimal);
+    printf("%s na base 16: %s\n", numero_romano, hexadecimal);
 
     return 0;
 }
