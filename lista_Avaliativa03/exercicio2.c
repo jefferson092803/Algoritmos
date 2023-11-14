@@ -15,7 +15,7 @@ int main() {
 
     for (int i = 1; i <= num_meses; i++) {
         double montante = calculaMontanteFimDoMes(i, aporte_mensal, taxa_juros);
-        printf("Montante ao fim do mes %d: R$%.2f\n", i, montante);
+        printf("Montante ao fim do mes %d: R$ %.2f\n", i, montante);
     }
 
     return 0;
