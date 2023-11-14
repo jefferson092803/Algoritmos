@@ -55,8 +55,11 @@ int main(){
     }
     if(marca>0){
       exit();
-      
     }
-  
+    
+    int ultimoDigito = placa[strlen(placa) -  1] - '0';
+
+
+
     return 0;
 }
