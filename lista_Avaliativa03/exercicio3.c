@@ -29,7 +29,7 @@ int validarPlaca(char *placa){
    return 1;
 }
 
-int validaçãoDiaSemana(char * dia){
+int validacaoDiaSemana(char * dia){
    char *diasValidos[] = {"SEGUNDA-FEIRA", "TERCA-FEIRA", "QUARTA-FEIRA", "QUINTA-FEIRA", "SEXTA-FEIRA", "SABADO", "DOMINGO"};
    for (int i = 0; i < 7; i++){
      if (strcmp(dia, diasValidos[i]) == 0){
@@ -42,18 +42,21 @@ int validaçãoDiaSemana(char * dia){
 int main(){
    char placa[9];
    char diaDaSemana[15];
+   int marca;
    scanf("%s",placa);
    scanf("%s",diaDaSemana); 
    if (!validarPlaca(placa)) {
-        printf("Placa invalida\n");
-        return 1;
+        printf("Placa invalida\n"); 
+        marca++;
     }
    if (!validaçãoDiaSemana(diaDaSemana)) {
         printf("Dia da semana invalido\n");
-        return 1;
+        marca++;
+    }
+    if(marca>0){
+      exit();
+      
     }
   
-
-
     return 0;
 }
