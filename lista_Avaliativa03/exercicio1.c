@@ -30,45 +30,49 @@ int function_RomanoParaDecimal(char *romano){
 }
 
 void DecimalPara_binario(int decimal,char binario[]){
-   int i = 0;
-   binario[0]=='\0';
-   
-   if (decimal == 0) {
-        printf("0\n");
-        return;
-    }
-    while (decimal > 0) {
-        binario[i] = decimal % 2 ;
+    binario[0] = '\0';
+
+   while (decimal > 0) {
+        char digito[2];
+        sprintf(digito, "%d", decimal % 2);
+        strcat(binario, digito);
         decimal = decimal / 2;
-        i++;
     }
-    for (int j = i - 1; j >= 0; j--) {
-        printf("%c", binario[j]);
+
+    int tamanho= strlen(binario);
+    for (int i = 0; i < tamanho / 2; i++) {
+        char temp = binario[i];
+        binario[i] = binario[tamanho - 1 - i];
+        binario[tamanho - 1 - i] = temp;
     }
 }
 
 void Decimal_Para_Hexadecimal(int decimal, char hexadecimal[]){
    int i = 0,resto;
-   if (decimal == 0) {
-        printf("0\n");
-        return;
-    }
+   hexadecimal[0] = '\0';
+   
    while (decimal > 0) {
         resto = decimal % 16;
+        char dig[2];
         if (resto < 10) {
-            hexadecimal[i] = resto + '0';
+            sprintf(dig,"%d",resto);
         } else {
-            hexadecimal[i] = resto - 10 + 'A';
+             sprintf(dig, "%c", resto - 10 + 'a');
         }
-
+        strcat(hexadecimal, dig);
         decimal = decimal / 16;
         i++;
     }
-    
+    int comprimento = strlen(hexadecimal);
+    for (int i = 0; i < comprimento / 2; i++) {
+        char temp = hexadecimal[i];
+        hexadecimal[i] = hexadecimal[comprimento - 1 - i];
+        hexadecimal[comprimento - 1 - i] = temp;
+    }
 }
 
 int main(){
-   char num_romano[12],binario[32], hexadecimal[100];
+   char num_romano[15],binario[32], hexadecimal[100];
    int decimal;
    scanf("%s",num_romano); 
    decimal = function_RomanoParaDecimal(num_romano);
