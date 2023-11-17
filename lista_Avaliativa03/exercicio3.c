@@ -40,22 +40,23 @@ int validacaoDiaSemana(char * dia){
 }
 
 int main(){
-   char placa[9];
-   char diaDaSemana[15];
+   char placa[10];
+   char diaDaSemana[20];
    int marca;
    scanf("%s",placa);
    scanf("%s",diaDaSemana); 
    if (!validarPlaca(placa)) {
         printf("Placa invalida\n"); 
-        marca = marca + 1;
+        marca++;
     }
    if (!validacaoDiaSemana(diaDaSemana)) {
         printf("Dia da semana invalido\n");
         marca++;
     }
     if(marca>0){
-      return 0;
+     return 0;
     }
+    
     int ultimoDigito = placa[strlen(placa) -  1];
 
     if(strcmp(diaDaSemana,"SEGUNDA-FEIRA")==0 && (ultimoDigito==0||ultimoDigito==1 )){
