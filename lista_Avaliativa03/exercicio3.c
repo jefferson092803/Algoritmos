@@ -42,7 +42,7 @@ int validacaoDiaSemana(char * dia){
 int main(){
    char placa[10];
    char diaDaSemana[20];
-   int marca;
+   int marca = 0;
    scanf("%s",placa);
    scanf("%s",diaDaSemana); 
    if (!validarPlaca(placa)) {
@@ -80,7 +80,6 @@ int main(){
      else{
       printf("%s pode circular %s\n", placa, diaDaSemana);
      }
-
 
     return 0;
 }
