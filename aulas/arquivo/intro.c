@@ -10,7 +10,6 @@ int main(){
         printf("erro ao abrir arquivo!!!\n");
         return 1;
     }
-    
     fputs("1234\n",f);
     fputs("5678\n",f);
 
